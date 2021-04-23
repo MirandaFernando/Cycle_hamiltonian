@@ -22,8 +22,9 @@ def HamCycle(graph):
                 path.append(district)
                 continue
 
-            for key_district in graph:
-                if(graph[district][key_district] == 1 and graph[key_district] in graph[last]):
+            for key_district in range(quant_vert):
+
+                if(graph[district][key_district] == 1 and graph[key_district] == graph[last]):
                     print("entrou")
                     last = district
                     path.append(district)
