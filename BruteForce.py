@@ -22,19 +22,26 @@ def HamCycle(graph):
                 path.append(district)
                 continue
 
-            for key_district in range(quant_vert):
-
-                if(graph[district][key_district] == 1 and graph[key_district] == graph[last]):
-                    print("entrou")
+            for i,key_district in enumerate(graph):
+                if(graph[district][i] == 1 and  graph[key_district] == graph[last]):
                     last = district
                     path.append(district)
                     break 
 
             if(len(path) == quant_vert):
-                if(graph[last][path[0]] == 1):
+                if(graph[last][VerifyId(path[0])] == 1):
                     path.append(path[0])
                     hamilt_route.append(path)
+            
+
     return hamilt_route
+
+def VerifyId(letra):
+    count = 0
+    for i in graph.keys():
+        if i == letra:
+            return count
+        count=count+1
 
 
 if __name__ == '__main__':
