@@ -2,10 +2,14 @@ import itertools
 import json
 
 
+
 def ReadJson():
     with open('Graph_districts.json', 'r', encoding='utf8') as f:
         return json.load(f)
 
+def WriteJson(dados):
+    with open('routes_hamilt.json', 'w') as f:
+        json.dump(dados, f)
 
 def HamCycle(graph):
     routes = itertools.permutations(graph)
@@ -47,5 +51,4 @@ def VerifyId(letra):
 if __name__ == '__main__':
    graph = ReadJson()
    district_routes = HamCycle(graph)
-   for district in district_routes:
-       print(district)
+   WriteJson(district_routes)
